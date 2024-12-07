@@ -12,40 +12,69 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $booth_count = $_POST['booth_count'] ?? '';
     $description = $_POST['description'] ?? '';
 
+    $error_message = null; // Variable untuk menyimpan pesan error
+    $uploaded_image = ''; // Variable untuk menyimpan nama gambar yang di-upload
+
     // Validasi input
     if (empty($kategori) || empty($title) || empty($date) || empty($time_start) || empty($time_end) || empty($location)) {
-        die("Error: Semua field wajib diisi!");
+        $error_message = "Semua field wajib diisi!";
+    } elseif (!is_numeric($price)) {
+        $error_message = "Harga sewa harus berupa angka!";
+    } elseif (strtotime($time_end) < strtotime($time_start)) {
+        $error_message = "Jam selesai tidak boleh lebih awal dari jam mulai!";
     }
 
-    // Validasi khusus untuk price (harga sewa)
-    if (!is_numeric($price)) {
-        die("Error: Harga sewa harus berupa angka!");
-    }
-
-    // Validasi file upload
-    $target = null; // Default jika tidak ada gambar
-    if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+    // Validasi gambar (file upload)
+    if (!isset($_FILES['image']) || $_FILES['image']['error'] === UPLOAD_ERR_NO_FILE) {
+        $error_message = "Gambar harus diisi!";  // Menampilkan pesan error jika tidak ada gambar yang diupload
+    } elseif (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
         $image = $_FILES['image']['name'];
-        $target = "uploads/" . basename($image);
+        $uploaded_image = "uploads/" . basename($image);
 
-        if (!move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
-            die("Error: Gagal mengupload file.");
+        if (!move_uploaded_file($_FILES['image']['tmp_name'], $uploaded_image)) {
+            $error_message = "Gagal mengunggah gambar.";
         }
     }
+
+    if ($error_message) {
+    // Jika ada error, tampilkan pop-up dengan pesan error
+    echo "
+    <div id='popup' style='display: flex; position: fixed; top: 0; left: 0; width: 100%; height: 100%; justify-content: center; align-items: center; z-index: 9999;'>
+        <div style='background-color: #fffbea; padding: 40px; border-radius: 15px; text-align: center; box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); width: 400px;'>
+            <div style='margin-bottom: 20px;'>
+                <div style='width: 70px; height: 70px; background-color: #ff4d4d; border-radius: 50%; margin: 0 auto; display: flex; justify-content: center; align-items: center;'>
+                    <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white' width='40' height='40'>
+                        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 18L18 6M6 6l12 12' />
+                    </svg>
+                </div>
+            </div>
+            <h3 style='font-family: Arial, sans-serif; font-size: 24px; color: #000;'>$error_message</h3>
+            <button id='backButton' style='margin-top: 30px; padding: 15px 30px; background-color: #ffca28; border: none; border-radius: 8px; color: #000; font-size: 18px; cursor: pointer;'>Kembali</button>
+        </div>
+    </div>
+    <script>
+        document.getElementById('backButton').addEventListener('click', function() {
+            window.location.href = 'tambahevent.php';
+        });
+    </script>
+    ";
+    exit; // Hentikan eksekusi jika ada error
+}
+
 
     // Simpan ke database
     $stmt = $conn->prepare("INSERT INTO events (kategori, title, date, time_start, time_end, location, price, booth_count, description, image) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     if (!$stmt) {
-        die("Error: " . $conn->error);
+        echo "Error: " . $conn->error;
+        exit;
     }
 
-    // Perbaikan: Parameter binding menggunakan 's' untuk semua field kecuali price yang menggunakan 'i'
-    $stmt->bind_param("ssssssisss", $kategori, $title, $date, $time_start, $time_end, $location, $price, $booth_count, $description, $target);
+    $stmt->bind_param("ssssssisss", $kategori, $title, $date, $time_start, $time_end, $location, $price, $booth_count, $description, $uploaded_image);
 
     if ($stmt->execute()) {
-        // Jika berhasil, tampilkan pop-up
+        // Tampilkan pop-up berhasil
         echo "
-        <div id='popup' style='display: flex; position: fixed; top: 0; left: 0; width: 100%; height: 100%; justify-content: center; align-items: center; background-color: rgba(0, 0, 0, 0.5); z-index: 9999;'>
+        <div id='popup' style='display: flex; position: fixed; top: 0; left: 0; width: 100%; height: 100%; justify-content: center; align-items: center; z-index: 9999;'>
             <div style='background-color: #fffbea; padding: 40px; border-radius: 15px; text-align: center; box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); width: 400px;'>
                 <div style='margin-bottom: 20px;'>
                     <div style='width: 70px; height: 70px; background-color: #32cd32; border-radius: 50%; margin: 0 auto; display: flex; justify-content: center; align-items: center;'>
@@ -64,8 +93,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             });
         </script>
         ";
-    } else {
-        die("Error: " . $stmt->error);
+    }
+         else {
+        echo "Error: " . $stmt->error;
     }
 
     $stmt->close();
@@ -223,6 +253,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .btn-secondary:hover {
             background-color: #f0f0f0;
         }
+        
     </style>
 </head>
 <body>
