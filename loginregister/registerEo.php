@@ -57,8 +57,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="header">
         <h1>Eventku</h1>
         <div class="auth-buttons">
-            <a href="/loginregister/landingLogin.php">Masuk</a>
-            <a href="/loginregister/landingRegister.php">Daftar</a>
+            <a href="landingLogin.php">Masuk</a>
+            <a href="landingRegister.php">Daftar</a>
         </div>
     </div>
     <div class="register-card">
@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit" class="btn-submit">Buat Akun</button>
         </form>
         <div class="auth-option">
-            Sudah mempunyai akun? <a href="/loginregister/landingLogin.php">Login</a>
+            Sudah mempunyai akun? <a href="landingLogin.php">Login</a>
         </div>
     </div>
 </body>

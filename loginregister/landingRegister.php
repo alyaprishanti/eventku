@@ -14,18 +14,18 @@
     <div class="header">
         <h1>Eventku</h1>
         <div class="auth-buttons">
-            <a href="/loginregister/landingLogin.php">Masuk</a>
-            <a href="/loginregister/landingRegister.php">Daftar</a>
+            <a href="landingLogin.php">Masuk</a>
+            <a href="landingRegister.php">Daftar</a>
         </div>
     </div>
 
     <!-- Welcome Card -->
     <div class="welcome-card">
         <h2>Selamat datang di <br> Eventku</h2>
-        <a href="/loginregister/registerUmkm.php" class="btn">Daftar sebagai UMKM</a>
-        <a href="/loginregister/registerEo.php" class="btn">Daftar sebagai EO</a>
+        <a href="registerUmkm.php" class="btn">Daftar sebagai UMKM</a>
+        <a href="registerEo.php" class="btn">Daftar sebagai EO</a>
         <div class="auth-option">
-            Sudah mempunyai akun? <a href="/loginregister/landingLogin.php">Login</a>
+            Sudah mempunyai akun? <a href='landingLogin.php'>Login</a>
         </div>
     </div>
 </body>

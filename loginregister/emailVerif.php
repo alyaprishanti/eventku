@@ -43,7 +43,7 @@
     <div id="verificationModal" class="modal">
         <div class="modal-content">
             <div class="success-icon">
-            <img src="/loginregister/checkICON.png" alt="Success">
+            <img src='uploads/checkICON.png' alt="Success">
             </div>
             <h3>Akun telah diverifikasi!</h3>
             <button id="loginButton" class="modal-button">Masuk</button>
@@ -72,7 +72,7 @@
         });
         
         document.getElementById('loginButton').addEventListener('click', function () {
-            window.location.href = '/loginregister/landingLogin.php';
+            window.location.href = 'landingLogin.php';
         });
     </script>
 </body>

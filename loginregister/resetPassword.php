@@ -71,8 +71,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['password']) && isset(
     <div class="header">
         <h1>Eventku</h1>
         <div class="auth-buttons">
-            <a href="loginregister/landingLogin.php">Masuk</a>
-            <a href="loginregister/landingRegister.php">Daftar</a>
+            <a href="landingLogin.php">Masuk</a>
+            <a href="landingRegister.php">Daftar</a>
         </div>
     </div>
     <!-- Password reset form -->
