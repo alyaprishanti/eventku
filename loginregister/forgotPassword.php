@@ -68,8 +68,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="header">
         <h1>Eventku</h1>
         <div class="auth-buttons">
-            <a href="/loginregister/landingLogin.php">Masuk</a>
-            <a href="/loginregister/landingRegister.php">Daftar</a>
+            <a href="landingLogin.php">Masuk</a>
+            <a href="landingRegister.php">Daftar</a>
         </div>
     </div>
 
@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit" class="btn-full">Lanjutkan</button>
         </form>
         <div class="auth-option">
-            Belum mempunyai akun? <a href="/loginregister/landingRegister.php">Daftar</a>
+            Belum mempunyai akun? <a href="landingRegister.php">Daftar</a>
         </div>
     </div>
 </body>

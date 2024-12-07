@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "<script>
                 alert('Email Anda salah.');
                 window.location.href = 'loginEo.php';
-              </script>";
+            </script>";
         exit();
     } 
     
@@ -35,13 +35,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "<script>
                 alert('Password Anda salah.');
                 window.location.href = 'loginEo.php';
-              </script>";
+            </script>";
         exit();
     }
 
     session_start();
     $_SESSION['id_eo'] = $user['id_eo']; 
-    header("Location: /kelolaevent/dashboard.php");
+    header("Location: /eventku/dashboardEO/eo_dashboard.php");
     exit();
 }
 ?>
@@ -62,8 +62,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="header">
         <h1>Eventku</h1>
         <div class="auth-buttons">
-            <a href="/loginregister/landingLogin.php">Masuk</a>
-            <a href="/loginregister/landingRegister.php">Daftar</a>
+            <a href="landingLogin.php">Masuk</a>
+            <a href="landingRegister.php">Daftar</a>
         </div>
     </div>
 
@@ -79,13 +79,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="password" id="password" name="password" placeholder="Password" required />
     </div>
     <div class="forgot-password">
-        <a href="/loginregister/forgotPassword.php">Lupa password?</a>
+        <a href='forgotPassword.php'>Lupa password?</a>
     </div>
     <button type="submit" class="btn-full">Login</button>
     </form>
 
         <div class="auth-option">
-            Belum mempunyai akun? <a href="/loginregister/landingRegister.php">Daftar</a>
+            Belum mempunyai akun? <a href="landingRegister.php">Daftar</a>
         </div>
     </div>
 </body>
