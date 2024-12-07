@@ -1,0 +1,88 @@
+* {
+    box-sizing: border-box;
+}
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fdf8f3;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+.header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 20px;
+    background-color: #fbbd08;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header h1 {
+    margin: 0;
+    color: #000;
+    font-weight: 700;
+}
+.header .auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+.header .auth-buttons a {
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #000;
+    background-color: white;
+    font-weight: 600;
+}
+.header .auth-buttons a:hover {
+    background-color: #ffe8a1;
+}
+
+.welcome-card {
+    text-align: center;
+    padding: 40px;
+    border-radius: 15px;
+    background: white;
+    width: 400px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+.welcome-card h2 {
+    margin: 0 0 20px;
+    color: #000;
+    font-weight: 700;
+}
+.welcome-card .btn {
+    display: block;
+    margin: 10px auto;
+    padding: 12px;
+    border-radius: 8px;
+    background-color: #fbbd08;
+    color: #000;
+    border: none;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+.welcome-card .btn:hover {
+    background-color: #f9a602;
+}
+.welcome-card .auth-option {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+}
+.welcome-card .auth-option a {
+    color: #fbbd08;
+    text-decoration: none;
+    font-weight: 600;
+}
+.welcome-card .auth-option a:hover {
+    text-decoration: underline;
+}

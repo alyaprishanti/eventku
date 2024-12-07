@@ -1,0 +1,111 @@
+* {
+    box-sizing: border-box;
+}
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff7e6;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+.header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 20px;
+    background-color: #fbbd08;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header h1 {
+    margin: 0;
+    color: #000;
+    font-weight: 700;
+}
+.header .auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+.header .auth-buttons a {
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #000;
+    background-color: white;
+    font-weight: 600;
+}
+.header .auth-buttons a:hover {
+    background-color: #ffe8a1;
+}
+
+.auth-card {
+    padding: 30px;
+    border-radius: 15px;
+    background: white;
+    width: 450px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.auth-card h2 {
+    margin-bottom: 20px;
+    color: #000;
+    font-weight: 600;
+}
+.auth-card label {
+        font-weight: 600;
+        display: block;
+        color: #000;
+        text-align: left;
+    }
+.auth-card input[type="text"],
+.auth-card input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: "Plus Jakarta Sans", sans-serif; 
+}
+.auth-card .btn-full {
+    margin-top: 10px;
+    background-color: #fbbd08;
+    color: #000;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: "Plus Jakarta Sans", sans-serif; 
+}
+.auth-card .btn-full:hover {
+    background-color: #f9a602;
+}
+.auth-option {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+}
+.auth-option a {
+    color: #fbbd08;
+    text-decoration: none;
+}
+/* Styling link "Lupa password?" */
+.forgot-password {
+    margin-top: 10px;
+    text-align: right;
+    font-size: 14px;
+    display: block;
+}
+.forgot-password a {
+    color: #000; 
+    text-decoration: underline; 
+}
+.forgot-password a:hover {
+    text-decoration: underline; 
+}
