@@ -1,0 +1,314 @@
+/* Mengatur font dan warna dasar */
+body {
+  font-family: 'Satoshi', sans-serif;
+  background-color: #FFF9eb;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* Gaya untuk header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #Ffc533;
+  padding: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #FFFFFF;
+  font-family: 'Satoshi';
+}
+
+/* Gaya container untuk layout */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Gaya untuk masing-masing baris */
+.row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+/* Gaya kolom pada baris pertama */
+.left-1-3 {
+  flex: 1 1 30%;
+  min-width: 200px;
+}
+
+.right-2-3 {
+  flex: 2 1 60%;
+  min-width: 300px;
+}
+
+/* Gaya kolom untuk baris kedua (tetap penuh) */
+.left {
+  flex: 2;
+  min-width: 300px;
+}
+
+.right {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* Gaya untuk upload foto profil */
+.file-upload {
+  border: 2px dashed #Ffc533;
+  width: 100%;
+  height: 300px;
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.file-upload img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.file-upload p {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.file-upload strong {
+  font-weight: bold;
+}
+
+.file-upload input[type="file"] {
+  display: none;
+}
+
+.file-info {
+  font-size: 8px;
+  color: #000;
+  font-weight: bold;
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.text-input {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #Ffc533;
+  background-color: #FFF9eb;
+  border-radius: 10px;
+  font-size: 18px;
+  color: #000;
+  box-sizing: border-box;
+  margin-top: 10px;
+  font-family: 'Konkhmer Sleokchher', sans-serif;
+}
+
+.category-select {
+  padding: 5px 10px;
+  border: 1px solid #Ffc533;
+  background-color: #Ffc533;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #FFFFFF;
+  margin-top: 10px;
+  font-family: 'Satoshi', sans-serif;
+}
+
+/* Gaya untuk bagian Produk & Portofolio */
+.product-portfolio {
+  flex: 1;
+}
+
+.portfolio-section {
+display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  border: 2px solid #Ffc533; /* Ubah warna border menjadi kuning */
+  border-radius: 10px;
+  padding: 30px;
+}
+
+.portfolio-item img {
+  border: 2px solid #Ffc533;
+  cursor: pointer;
+}
+.product-portfolio h2 {
+  font-size: 40px;
+  color: #333333;
+  margin-bottom: 15px;
+}
+
+.portfolio-upload {
+  border: 2px dashed #Ffc533;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.portfolio-info {
+font-size: 8px;
+  color: #000;
+  font-weight: bold;
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-section {
+  flex: 1;  
+  background-color: #FFDC85;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 350px;
+}
+
+.info-section h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333333;
+}
+
+.info-section label {
+  font-weight: bold;
+  color: #666666;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.info-section input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #CCCCCC;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* Gaya umum untuk tombol */
+.footer-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px; /* Sesuaikan jarak antar tombol */
+  margin-top: 50px;
+}
+
+.footer-buttons .cancel-button,
+.footer-buttons .save-button {
+  border: none;
+  padding: 10px 20px;
+  font-size: 15px;
+  border-radius: 15px; /* Mengatur sudut melengkung */
+  font-weight: bold;
+  cursor: pointer;
+  min-width: 240px; /* Lebar minimum tombol */
+}
+
+.footer-buttons .cancel-button {
+  background-color: #FFF9eb; /* Warna latar belakang hitam */
+  border: 1px solid #Ffc533;
+  color: #000000; /* Warna teks kuning */
+}
+
+.footer-buttons .save-button {
+  background-color: #Ffc533; /* Warna latar belakang kuning */
+  color: #000000; /* Warna teks hitam */
+}
+
+/* Gaya untuk pop-up */
+      /* Pastikan popup-overlay menggunakan display flex */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Latar belakang transparan */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Supaya menutupi semua elemen di halaman */
+}
+
+/* Tambahkan pengaturan margin dan lebarnya agar tampil lebih baik */
+.popup-content {
+  background-color: #FFF9eb;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+  max-width: 80%; /* Batasi lebar agar responsive */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 0 auto; /* Pusatkan secara horizontal */
+}
+
+
+.popup-content img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 15px;
+}
+
+.popup-content p {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.popup-content button {
+  background-color: #Ffc533;
+  color: #000;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.delete-button {
+  background-color: #Ffc533; /* Warna latar belakang */
+  color: white; /* Warna ikon */
+  border: none; /* Hilangkan border */
+  border-radius: 50%; /* Bentuk bulat */
+  width: 40px; /* Lebar tombol */
+  height: 40px; /* Tinggi tombol */
+  display: flex; /* Untuk membuat ikon berada di tengah */
+  align-items: center;
+  justify-content: center;
+  cursor: pointer; /* Pointer pada hover */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Animasi */
+}
+
+.delete-btn {
+  background-color: #Ffc533; /* Warna merah untuk memberi kesan peringatan */
+  color: white;
+  font-size: 14px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
