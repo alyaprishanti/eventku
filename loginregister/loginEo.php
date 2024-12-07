@@ -1,36 +1,28 @@
 <?php
-// Informasi koneksi database
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "eventku";
 
 try {
-    // Koneksi ke database menggunakan PDO
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     die("Koneksi database gagal: " . $e->getMessage());
 }
 
-// Cek apakah form sudah disubmit menggunakan POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Ambil data email dan password dari form POST
     $email = $_POST['email'] ?? '';
     $pass = $_POST['password'] ?? '';
 
-    // Query untuk mengambil data pengguna berdasarkan email
     $sql = "SELECT * FROM eo WHERE email_eo = :email LIMIT 1";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':email', $email, PDO::PARAM_STR);
     $stmt->execute();
 
-    // Ambil hasil query
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // Cek apakah email ada di database
     if (!$user) {
-        // Email tidak ditemukan
         echo "<script>
                 alert('Email Anda salah.');
                 window.location.href = 'loginEo.php';
@@ -38,7 +30,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     } 
     
-    // Verifikasi password jika email ditemukan
     if ($pass !== $user['password_eo']) {
         // Password salah
         echo "<script>
@@ -48,8 +39,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
-    // Jika email dan password benar, arahkan ke halaman emailVerif.php
-    header("Location: /loginregister/homeEo.php");
+    session_start();
+    $_SESSION['id_eo'] = $user['id_eo']; 
+    header("Location: /kelolaevent/dashboard.php");
     exit();
 }
 ?>
@@ -67,7 +59,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="css/loginEo.css"> 
 </head>
 <body>
-    <!-- Header -->
     <div class="header">
         <h1>Eventku</h1>
         <div class="auth-buttons">
@@ -76,7 +67,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 
-    <!-- Auth Card -->
     <div class="auth-card">
         <h2>Masuk ke EO Eventku</h2>
         <form action="loginEo.php" method="POST">
