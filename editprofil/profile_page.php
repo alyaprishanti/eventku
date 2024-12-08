@@ -3,7 +3,7 @@
 
   $id_umkm = 1;
   $query = "
-    SELECT u.nama_usaha_umkm, u.nama_pemilik_umkm, u.nmr_telepon_umkm, u.email_umkm, u.bidang_usaha_umkm, u.alamat_umkm, 
+    SELECT u.nama_usaha_umkm, u.nama_lengkap_umkm, u.nmr_telepon_umkm, u.email_umkm, u.bidang_usaha_umkm, u.alamat_umkm, 
            p.deskripsi_umkm, p.foto_profil 
     FROM eventku.umkm u 
     JOIN eventku.profil_umkm p ON u.id_umkm = p.Id_umkm 
@@ -73,7 +73,7 @@
         <div class="info-section">
           <h2>INFO</h2>
           <label for="pemilik">Pemilik Usaha</label>
-          <input type="text" id="pemilik" value="<?php echo $data['nama_pemilik_umkm']; ?>" readonly>
+          <input type="text" id="pemilik" value="<?php echo $data['nama_lengkap_umkm']; ?>" readonly>
 
           <label for="alamat">Alamat</label>
           <input type="text" id="alamat" value="<?php echo $data['alamat_umkm']; ?>" readonly>

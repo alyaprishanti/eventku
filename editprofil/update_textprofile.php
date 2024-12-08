@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $query_umkm = "
         UPDATE eventku.umkm 
         SET 
-            nama_pemilik_umkm = '$pemilik_usaha',
+            nama_lengkap_umkm = '$pemilik_usaha',
             nmr_telepon_umkm = '$kontak',
             alamat_umkm = '$alamat'
         WHERE id_umkm = $id_umkm

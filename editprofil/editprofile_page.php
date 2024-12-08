@@ -4,7 +4,7 @@
   $id_umkm = 1; // ID UMKM yang ingin ditampilkan
   $query = "
       SELECT 
-          u.nama_usaha_umkm, u.nama_pemilik_umkm, u.nmr_telepon_umkm, 
+          u.nama_usaha_umkm, u.nama_lengkap_umkm, u.nmr_telepon_umkm, 
           u.email_umkm, u.bidang_usaha_umkm, u.alamat_umkm, 
           p.deskripsi_umkm, p.foto_profil
       FROM 
@@ -123,7 +123,7 @@
     <form id="form4" method="POST" action="update_textprofile.php">
         <h2>INFO</h2>
         <label for="pemilik">Pemilik Usaha</label>
-        <input type="text" id="pemilik" name="pemilik_usaha" value="<?php echo htmlspecialchars($data['nama_pemilik_umkm']); ?>">
+        <input type="text" id="pemilik" name="pemilik_usaha" value="<?php echo htmlspecialchars($data['nama_lengkap_umkm']); ?>">
         
         <label for="alamat">Alamat</label>
         <input type="text" id="alamat" name="alamat" value="<?php echo htmlspecialchars($data['alamat_umkm']); ?>">
