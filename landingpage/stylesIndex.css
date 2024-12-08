@@ -1,4 +1,3 @@
-/* General Styles */
 * {
     box-sizing: border-box;
 }
@@ -10,7 +9,6 @@ body, html {
     font-family: "Plus Jakarta Sans", sans-serif;
 }
 
-/* Header Styles */
 .header {
     position: fixed;
     top: 0;
@@ -44,16 +42,14 @@ body, html {
     background-color: #ffe8a1;
 }
 
-/* Content Styles */
 .content {
-    margin-top: 110px; /* Memberikan jarak lebih besar dari header */
+    margin-top: 110px; 
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
 }
 
-/* Card Styles */
 .card {
     width: 90%;
     max-width: 1200px; 
