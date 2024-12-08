@@ -4,7 +4,7 @@ include 'db.php';
 
 // Memastikan user sudah login
 if (!isset($_SESSION['id_umkm'])) {
-  header('Location: loginregister/loginUMKM.php');
+  header('Location: /loginregister/loginUMKM.php');
   exit;
 }
 
