@@ -47,9 +47,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               </script>";
         exit();
     }
-
-    // Jika email dan password benar, arahkan ke halaman emailVerif.php
-    header("Location: emailVerif.php");
+    session_start();
+    $_SESSION['id_umkm'] = $user['id_umkm']; 
+    header("Location: /eventku/editprofil/UMKM_Dashboard.php");
     exit();
 }
 ?>

@@ -1,9 +1,7 @@
 <?php
 session_start();
 
-// Periksa apakah pengguna sudah login
 if (!isset($_SESSION['id_eo'])) {
-    // Jika belum login, arahkan ke halaman login
     header("Location: /loginregister/loginEo.php");
     exit();
 }
