@@ -6,6 +6,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $alamat = $_POST['alamat'];
     $kontak = $_POST['kontak'];
 
+    if (empty($pemilik_usaha) || empty($alamat) || empty($kontak)) {
+        header('Location: editprofile_page.php?error=empty_fields');
+        exit; 
+    }
+
+    if (strlen($pemilik_usaha) > 100) {
+        header('Location: editprofile_page.php?error=nama_lengkap_invalid');
+        exit;
+    }
+
+    if (strlen($alamat) > 100) {
+        header('Location: editprofile_page.php?error=alamat_invalid');
+        exit;
+    }
+    
+    if (strlen($kontak) != 11) {
+        header('Location: editprofile_page.php?error=kontak_invalid');
+        exit;
+    }
+
     // Query untuk update data
     $query_umkm = "
         UPDATE eventku.umkm 

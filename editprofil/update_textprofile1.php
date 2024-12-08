@@ -6,6 +6,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nama_usaha = $_POST['nama_usaha'];
     $deskripsi = $_POST['deskripsi'];
 
+    if (empty($bidang_usaha) || empty($nama_usaha)) {
+        header('Location: editprofile_page.php?error=empty_fields');
+        exit; // Hentikan eksekusi skrip jika ada kolom yang kosong
+    }
+
+    if (strlen($nama_usaha) > 100) {
+        header('Location: editprofile_page.php?error=nama_usaha_invalid');
+        exit;
+    }
+    
     // Query untuk update data
     $query_umkm = "
         UPDATE eventku.umkm 
