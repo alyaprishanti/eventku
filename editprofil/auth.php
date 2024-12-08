@@ -19,6 +19,7 @@ if (mysqli_num_rows($result) == 0) {
     // Inisialisasi Profil UMKM
     $insertQuery = "INSERT INTO profil_umkm (id_umkm) VALUES ('$id_umkm')";
     if (mysqli_query($db, $insertQuery)) {
+      $id_profil = mysqli_insert_id($db);
       // Inisialisasi Portfolio UMKM
       $portfolioQuery = "INSERT INTO portofolio_umkm (id_profil) 
                          VALUES ('$id_umkm')";
