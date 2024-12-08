@@ -1,0 +1,231 @@
+body {
+    font-family: Satoshi, Satoshi;
+    background-color: #fdf6e3;
+    margin: 0;
+    padding: 0;
+    }
+.header {
+    background-color: #Ffc533;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+.header .search-bar {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+}
+.header .search-bar input {
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    width: 450px;
+}
+.header .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    margin-right: 30px;
+}
+
+.header-right {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    position: relative;
+    margin-left: auto;
+}
+
+.header-right .btn-umkm{
+    background-color: #301934; 
+    color: white; 
+    padding: 10px 20px; 
+    border-radius: 10px; 
+    font-weight: 600;
+    font-size: 14px; 
+    text-decoration: none; 
+    display: inline-block; 
+    border: none; 
+    cursor: pointer; 
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right : 0;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 100;
+    width: 200px; 
+    padding: 5px;
+}
+.dropdown-menu a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+.dropdown-menu a:hover {
+    background-color: #f0f0f0;
+}
+@media (max-width: 768px) {
+    .dropdown-menu {
+        width: 100%;
+        top: 60px;
+        left: 0;
+        right: 0;
+    }
+}
+.header .nav-links a {
+    margin-left: 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+.header .nav-links a i {
+    margin-right: 5px;
+}
+.content {
+    display: flex;
+    padding: 20px;
+}
+.main-content {
+    flex: 3;
+}
+.sidebar {
+    flex: 1;
+    padding-left: 20px;
+}
+.upcoming-event {
+    font-size: 29px;
+    font-weight: 1000;
+    margin-bottom: 20px;
+    margin-left: 15px;
+    text-decoration: underline;
+}
+.event-item {
+    background-color: #Ffc533;
+    border-radius: 10px;
+    display: flex;
+    align-items: left;
+    padding: 10px;
+    margin-bottom: 15px;
+    margin-left: 20px;
+    margin-inline-end: 60px;
+    position: relative;
+}
+.event-item img {
+    border-radius: 10px;
+    width: 200px;
+    height: 120px;
+    object-fit: cover;
+}
+
+.event-details {
+    flex: 1;
+    padding-left: 10px;
+    position: relative;
+    font-weight: 700;
+}
+
+.event-details h3 {
+    margin: 0;
+    font-size: 33px;
+    margin: -5px 0 5px 0; 
+    position: relative; 
+    top: 0px; 
+    font-weight: 800;
+}
+
+.event-details .info {
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    column-gap: 0;
+    gap: 7px; 
+    margin-top: -5px; 
+    max-width: 250px; 
+}
+.event-details .info span {
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    background-color: white;
+    padding: 5px; 
+    border-radius: 5px; 
+    font-size: 10px; 
+    text-align: center;
+    height: 25px; 
+    width: 60%; 
+    box-sizing: border-box; 
+    margin-left: 5px;
+}
+
+.event-details .info span i {
+    margin-right: 3px; 
+}
+
+.button {
+    background-color: #301934;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    position: absolute; 
+    bottom: 10px; 
+    right: 10px; 
+}
+
+.notification {
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-height: 150px;
+    overflow: hidden;
+    position: relative;
+}
+.notification h3 {
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.notification h3 i {
+    margin-right: 10px;
+}
+.notification p {
+    text-align: justify;
+    position: relative;
+}
+.notification p::after {
+    content: "";
+    display: block;
+    width: 50%;
+    height: 1px;
+    background-color: #ccc;
+    margin: 10px auto;
+}
+.notification .expand-button {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}

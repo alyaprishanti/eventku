@@ -12,7 +12,7 @@ include 'auth.php';
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@100..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/stylesFAQ.css">
+    <link rel="stylesheet" href="/eventku/FAQ/styles/stylesDashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
