@@ -1,3 +1,7 @@
+<?php
+include 'auth.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,9 +17,16 @@
 </head>
 <body>
     <div class="header">
-        <h1>Eventku </h1>
-        <div class="nav-links">
-            <a href="#" class="btn-umkm"><i class="fas fa-user"></i>AKUN</a>
+        <a href="UMKM_Dashboard.php">
+            <h1>Eventku</h1>
+        </a>
+        <div class="nav-links" style="position: relative;">
+            <button class="btn-umkm" onclick="toggleDropdown()"><i class="fas fa-user"></i>AKUN</button >
+            <div class="dropdown-menu" id="dropdownMenu">
+              <a href="profile_page.php?id_umkm=<?php echo $id_umkm; ?>">Profil</a>  
+              <a href="#">Daftar Favorit</a>
+              <a href="#">Log Out</a>
+            </div>
         </div>
     </div>
 
@@ -62,6 +73,7 @@
     </div>
 
     <script>
+        // Dropdown FAQ
         function toggleFAQ(item) {
             const answer = item.nextElementSibling;
             if (answer.style.display === "block") {
@@ -72,6 +84,21 @@
                 item.querySelector('span').innerHTML = "&#x25B2;";
             }
         }
+
+        // Dropdown tombol profil
+        function toggleDropdown() {
+            const dropdownMenu = document.getElementById('dropdownMenu');
+            dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Tutup dropdown jika pengguna mengklik di luar dropdown
+        document.addEventListener('click', function (event) {
+            const dropdownMenu = document.getElementById('dropdownMenu');
+            const btnUmkm = document.querySelector('.btn-umkm');
+            if (!dropdownMenu.contains(event.target) && !btnUmkm.contains(event.target)) {
+                dropdownMenu.style.display = 'none';
+            }
+        });
     </script>
 </body>
 </html>

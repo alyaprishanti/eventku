@@ -5,7 +5,7 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: 'Satoshi', Satoshi;
-    background-color: #FFF9eb;
+    background-color: #fff7e6;
 }
 body {
     padding-top: 80px; 
@@ -16,12 +16,15 @@ body {
     left: 0;
     width: 100%;
     padding: 20px;
-    background-color: #Ffc533;
+    background-color: #fbbd08;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1000; 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+.header a {
+    text-decoration: none; 
 }
 .header h1 {
     margin: 0;
@@ -31,8 +34,8 @@ body {
 .header .nav-links {
     display: flex;
     align-items: center;
+    position: relative;
 }
-
 .nav-links .btn-umkm {
     background-color: #301934;
     color: white; 
@@ -46,15 +49,46 @@ body {
 .nav-links .btn-umkm:hover {
     background-color: #4a2b52; 
 }
-
 .header .nav-links a {
-    margin-left: 20px;
-    color: white;
+    margin-left: 5px;
+    color: black;
     text-decoration: none;
     font-size: 14px;
 }
 .nav-links .btn-umkm i {
     margin-right: 5px;
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right : 0;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 100;
+    width: 200px; 
+    padding: 5px;
+}
+.dropdown-menu a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+.dropdown-menu a:hover {
+    background-color: #f0f0f0;
+}
+@media (max-width: 768px) {
+    .dropdown-menu {
+        width: 100%;
+        top: 60px;
+        left: 0;
+        right: 0;
+    }
 }
 .faq-section {
     max-width: 1200px;
@@ -70,7 +104,7 @@ body {
     margin-bottom: 30px;
 }
 .faq-item {
-    background-color: #Ffc533;
+    background-color: #fbbd08;
     color: #000;
     padding: 20px;
     margin: 15px 0;
@@ -111,7 +145,7 @@ body {
     margin-bottom: 20px;
 }
 .faq-footer .btn-contact {
-    background-color: #Ffc533;
+    background-color: #fbbd08;
     color: #000;
     padding: 12px 30px;
     border-radius: 8px;
@@ -121,5 +155,5 @@ body {
     font-weight: 600;
 }
 .faq-footer .btn-contact:hover {
-    background-color: #Ffc533;
+    background-color: #f9a602;
 }

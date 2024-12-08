@@ -1,3 +1,7 @@
+<?php
+include 'auth.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@100..700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <script>
+        // Dropdown notifikasi
         function toggleNotification() {
             var notification = document.querySelector('.notification');
             var button = document.querySelector('.expand-button');
@@ -19,6 +24,21 @@
                 button.innerHTML = '&#9660;'; 
             }
         }
+
+        // Dropdown tombol profil
+        function toggleDropdown() {
+            const dropdownMenu = document.getElementById('dropdownMenu');
+            dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Tutup dropdown jika pengguna mengklik di luar dropdown
+        document.addEventListener('click', function (event) {
+            const dropdownMenu = document.getElementById('dropdownMenu');
+            const btnUmkm = document.querySelector('.btn-umkm');
+            if (!dropdownMenu.contains(event.target) && !btnUmkm.contains(event.target)) {
+                dropdownMenu.style.display = 'none';
+            }
+        });
     </script>
 </head>
 <body>
@@ -29,8 +49,15 @@
         </div>
         <div class="nav-links">
             <a href="FAQ.php">FAQ &amp; Support</a>
-            <a href="profile_page.php" class="btn-umkm">
-        <i class="fas fa-user"></i> UMKM</a>
+        </div>
+        <div class="header-right">
+        <button class="btn-umkm" onclick="toggleDropdown()">
+            <i class="fas fa-user"></i> UMKM</button>
+        <div class="dropdown-menu" id="dropdownMenu">
+              <a href="profile_page.php?id_umkm=<?php echo $id_umkm; ?>">Profil</a>  
+              <a href="#">Daftar Favorit</a>
+              <a href="#">Log Out</a>
+        </div>
         </div>
     </div>
     <div class="content">

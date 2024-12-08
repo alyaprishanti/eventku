@@ -71,7 +71,7 @@
                         <span id="fileName"></span>
                     </div>
                     <div class="file-info">
-                        <span>Supported format: PNG, JPG, PDF</span><br>
+                        <span>Supported format: PNG, JPG, JPEG</span><br>
                         <span>Ukuran maksimum: 25MB</span>
                     </div>
                     </form>
@@ -116,7 +116,7 @@
                     </div>
 
                     <div class="portfolio-info">
-                        <span>Supported format: PNG, JPG, PDF</span>
+                        <span>Supported format: PNG, JPG, JPEG</span>
                         <span>Ukuran maksimum: 25MB</span>
                     </div>
                 </form>
