@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     session_start();
     $_SESSION['id_umkm'] = $user['id_umkm']; 
-    header("Location: /eventku/editprofil/UMKM_Dashboard.php");
+    header("Location: /eventku/dashboardUMKM/UMKM_Dashboard.php");
     exit();
 }
 ?>

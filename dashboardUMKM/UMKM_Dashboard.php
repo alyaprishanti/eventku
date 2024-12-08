@@ -50,9 +50,9 @@
         <button class="btn-umkm" onclick="toggleDropdown()">
             <i class="fas fa-user"></i> UMKM</button>
         <div class="dropdown-menu" id="dropdownMenu">
-              <a href="profile_page.php">Profil</a>  
-              <a href="#">Daftar Favorit</a>
-              <a href="#">Log Out</a>
+            <a href="/eventku/editprofil/profile_page.php">Profil</a>  
+            <a href="#">Daftar Favorit</a>
+            <a href="#">Log Out</a>
         </div>
         </div>
     </div>

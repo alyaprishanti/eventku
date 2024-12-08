@@ -481,15 +481,17 @@ textarea {
     padding-top: 60px;
 }
 
-.popup {
-    display: none; /* Sembunyikan pop-up secara default */
-    position: fixed; /* Tetap di tempat */
-    z-index: 1000; /* Di atas elemen lain */
-    left: 0;
+#popup {
+    display: flex;
+    position: fixed;
     top: 0;
-    width: 100%; /* Lebar penuh */
-    height: 100%; /* Tinggi penuh */
-    background-color: rgba(0, 0, 0, 0.5); /* Latar belakang gelap */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Latar belakang transparan */
+    z-index: 9999;
 }
 
 .popup-content {

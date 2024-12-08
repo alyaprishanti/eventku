@@ -13,7 +13,7 @@
 </head>
 <body>
     <div class="header">
-        <a href="UMKM_Dashboard.php">
+        <a href="/eventku/dashboardUMKM/UMKM_Dashboard.php">
             <h1>Eventku</h1>
         </a>
         <div class="nav-links" style="position: relative;">

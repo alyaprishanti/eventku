@@ -34,7 +34,7 @@
 <body>
   <!-- Header -->
   <div class="header">
-    <button onclick="window.location.href='UMKM_Dashboard.php'">Kembali</button>
+    <button onclick="window.location.href='/eventku/dashboardUMKM/UMKM_Dashboard.php'">Kembali</button>
     <h1 class="header-title">Eventku</h1>
     <button onclick="window.location.href='editprofile_page.php'">Edit</button>
   </div>

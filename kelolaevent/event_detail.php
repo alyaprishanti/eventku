@@ -60,26 +60,25 @@ $event = $result->fetch_assoc();
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand logo" href="#">Eventku</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Kelola Event</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">FAQ & Support</a></li>
-                    <li class="nav-item">
-                        <div class="user-box d-flex align-items-center">
-                            <i class="fa-solid fa-user user-icon"></i>
-                            <span>EO</span>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+      <div class="container">
+        <a class="navbar-brand logo" href="/eventku/dashboardEO/eo_dashboard.php">Eventku</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="/eventku/dashboardEO/eo_dashboard.php">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/eventku/kelolaevent/dashboard.php">Kelola Event</a></li>
+            <li class="nav-item"><a class="nav-link" href="/eventku/FAQ/FAQEO.php">FAQ & Support</a></li>
+            <li class="nav-item">
+              <div class="user-box d-flex align-items-center">
+                <i class="fa-solid fa-user user-icon"></i>
+                <span>EO</span>
+              </div>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
     <!-- Content -->
