@@ -1,9 +1,7 @@
 <?php
-include 'db.php';
+include 'auth.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Ambil data dari form
-    $id_umkm = 1; // ID UMKM yang ingin diupdate
     $pemilik_usaha = $_POST['pemilik_usaha'];
     $alamat = $_POST['alamat'];
     $kontak = $_POST['kontak'];

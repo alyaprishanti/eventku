@@ -1,7 +1,6 @@
 <?php
-include 'db.php';
+include 'auth.php';
 
-$id_umkm = 1;
 $errorMessage = "";
 
 if (isset($_FILES['foto_profil']) && $_FILES['foto_profil']['error'] === UPLOAD_ERR_OK) {

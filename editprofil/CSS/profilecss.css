@@ -43,7 +43,7 @@
 
         .row {
             display: flex;
-            gap: 40px; /* Tambahan jarak antara foto profil dan teks */
+            gap: 40px;
             margin-top: 20px;
         }
 

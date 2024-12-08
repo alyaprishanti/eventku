@@ -1,9 +1,8 @@
 <?php
-include 'db.php';
+include 'auth.php';
 
 $errorMessage = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_foto'])) {
-    $id_umkm = 1; 
 
     $query_foto = "SELECT foto_profil FROM eventku.profil_umkm WHERE id_umkm = $id_umkm";
     $result_foto = mysqli_query($db, $query_foto);

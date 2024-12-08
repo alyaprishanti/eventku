@@ -1,7 +1,6 @@
 <?php
-  include 'db.php';
+  include 'auth.php';
 
-  $id_umkm = 1; 
   $query = "
       SELECT 
           u.nama_usaha_umkm, u.nama_lengkap_umkm, u.nmr_telepon_umkm, 
@@ -44,6 +43,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Profil</title>  
     <link rel="stylesheet" href="css/editprofilecss.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -268,18 +268,31 @@
 
     // Menampilkan pratinjau gambar setelah file dipilih pada #portfolioInput
     document.getElementById('portfolioInput').addEventListener('change', function() {
-        const file = this.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const previewImage = document.createElement('img');
-                previewImage.src = e.target.result;
-                previewImage.style.width = '150px';
-                previewImage.style.height = '150px';
-                document.querySelector('.portfolio-section').appendChild(previewImage);
-            };
-            reader.readAsDataURL(file);
-        }
+    const file = this.files[0];
+    const cameraIcon = document.getElementById('cameraIcon');
+    const previewContainer = document.querySelector('.portfolio-section');
+
+    // Hapus pratinjau sebelumnya jika ada
+    let existingPreview = previewContainer.querySelector('img.preview ');
+    if (existingPreview) {
+        existingPreview.remove();
+    }
+
+    // Cek apakah file dipilih
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const previewImage = document.createElement('img');
+            previewImage.src = e.target.result;
+            previewImage.className = 'preview';
+            previewImage.style.width = '150px';
+            previewImage.style.height = '150px';
+            previewImage.style.border = '2px solid #ccc'; 
+            previewImage.style.borderRadius = '10px'; 
+            previewContainer.appendChild(previewImage);
+        };
+        reader.readAsDataURL(file);
+    }
     });
 
     // Menangani penghapusan item portfolio
@@ -303,7 +316,6 @@
         })
         .then(data => {
             if (data.status === 'success') {
-                // Hapus elemen dari tampilan
                 portfolioItem.remove();
             } else {
                 console.error('Kesalahan dari server:', data.message);
@@ -319,7 +331,7 @@
     // Menghapus foto profil saat tombol hapus diklik
     document.getElementById('deleteBtn').addEventListener('click', function (event) {
     event.preventDefault();
-    const id_umkm = 1;
+    const id_umkm = $id_umkm;
 
     fetch('delete_photoprofile.php', {
         method: 'POST',
@@ -338,6 +350,5 @@
                 document.getElementById('deleteBtn').style.display = 'none';       
   });
 </script>
-
 </body>
 </html>

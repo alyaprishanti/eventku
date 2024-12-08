@@ -5,7 +5,7 @@ body {
     padding: 0;
     }
 .header {
-    background-color: #fbbd08;
+    background-color: #Ffc533;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
@@ -71,7 +71,7 @@ body {
     text-decoration: underline;
 }
 .event-item {
-    background-color: #fbbd08;
+    background-color: #Ffc533;
     border-radius: 10px;
     display: flex;
     align-items: left;

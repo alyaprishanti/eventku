@@ -1,7 +1,6 @@
 <?php
-include 'db.php';
+include 'auth.php';
 
-$id_umkm = 1; 
 $errorMessage='';
 if (isset($_FILES['portfolio_upload']) && !empty($_FILES['portfolio_upload']['name'][0])) {
   $files = $_FILES['portfolio_upload'];
