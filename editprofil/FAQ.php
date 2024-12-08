@@ -12,9 +12,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-
     <div class="header">
-        <h1>Eventku</h1>
+        <h1>Eventku </h1>
         <div class="nav-links">
             <a href="#" class="btn-umkm"><i class="fas fa-user"></i>AKUN</a>
         </div>
