@@ -1,7 +1,8 @@
 <?php
 include 'db.php';
 
-$id_umkm = 1; // ID UMKM yang akan diupdate
+$id_umkm = 1;
+$errorMessage = "";
 
 if (isset($_FILES['foto_profil']) && $_FILES['foto_profil']['error'] === UPLOAD_ERR_OK) {
     $fileTmpPath = $_FILES['foto_profil']['tmp_name'];
@@ -10,11 +11,9 @@ if (isset($_FILES['foto_profil']) && $_FILES['foto_profil']['error'] === UPLOAD_
     $fileType = $_FILES['foto_profil']['type'];
     $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
 
-    // Daftar ekstensi file yang diperbolehkan
     $allowedExtensions = ['jpg', 'jpeg', 'png'];
 
     if (in_array($fileExtension, $allowedExtensions)) {
-        // Tentukan folder penyimpanan
         $uploadDir = 'uploads/';
         $newFileName = 'foto_profil_umkm_' . $id_umkm . '.' . $fileExtension;
         $uploadFilePath = $uploadDir . $newFileName;
@@ -28,16 +27,23 @@ if (isset($_FILES['foto_profil']) && $_FILES['foto_profil']['error'] === UPLOAD_
 
             $update_foto = mysqli_query($db, $query_update_foto);
 
-            if ($update_foto) {
-                echo "Foto profil berhasil diperbarui.";
-            } else {
-                echo "Gagal memperbarui foto profil di database.";
-            }
+            if (!$update_foto) {
+                $errorMessage = "Gagal memperbarui foto profil di database.";
+            } 
         } else {
-            echo "Gagal mengunggah file.";
+            $errorMessage= "Gagal mengunggah file.";
         }
     } else {
-        echo "Format file tidak didukung. Hanya JPG, JPEG, dan PNG yang diperbolehkan.";
+        $errorMessage = "Format file salah atau ukuran melebihi 25MB.";
     }
+}
+
+if (!empty($errorMessage)) {
+    echo "<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('errorPopup').style.display = 'flex';
+            document.getElementById('errorMessage').innerText = '$errorMessage';
+        });
+    </script>";
 }
 ?>

@@ -1,33 +1,38 @@
 <?php
 include 'db.php';
-if (isset($_POST['delete_portfolio'])) {
-  $id_portfolio = intval($_POST['id_portfolio']); // ID portfolio yang akan dihapus
 
-  // Ambil nama file dari database
-  $query_get_file = "SELECT portofolio_url FROM portofolio_umkm WHERE id_portofolio = $id_portfolio";
-  $result_get_file = mysqli_query($db, $query_get_file);
-  $file_data = mysqli_fetch_assoc($result_get_file);
+$errorMessage = '';
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_foto'])) {
+    $id_umkm = 1; 
 
-  if ($file_data) {
-      $file_path = 'uploads/' . $file_data['portofolio_url'];
+    $query_foto = "SELECT foto_profil FROM eventku.profil_umkm WHERE id_umkm = $id_umkm";
+    $result_foto = mysqli_query($db, $query_foto);
+    $data_foto = mysqli_fetch_assoc($result_foto);
 
-      // Hapus file dari direktori
-      if (file_exists($file_path)) {
-          unlink($file_path);
-      }
+    if ($data_foto) {
+        $fotoProfil = $data_foto['foto_profil'];
 
-      // Hapus data dari database
-      $query_delete = "DELETE FROM portofolio_umkm WHERE id_portofolio = $id_portfolio";
-      $delete_result = mysqli_query($db, $query_delete);
+        $filePath = 'uploads/' . $fotoProfil;
 
-      if ($delete_result) {
-          echo json_encode(['status' => 'success']);
-      } else {
-          echo json_encode(['status' => 'error', 'message' => 'Gagal menghapus data dari database.']);
-      }
-  } else {
-      echo json_encode(['status' => 'error', 'message' => 'Data tidak ditemukan.']);
-  }
+        if (file_exists($filePath)) {
+            unlink($filePath);
+        }
 
-  exit;
-}?>
+        $query_update_foto = "UPDATE eventku.profil_umkm SET foto_profil = NULL WHERE id_umkm = $id_umkm";
+        $update_foto = mysqli_query($db, $query_update_foto);
+
+        if (!$update_foto) {
+            $errorMessage= "Gagal menghapus foto profil dari database";
+        }
+    }
+}
+
+if (!empty($errorMessage)) {
+    echo "<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('errorPopup').style.display = 'flex';
+            document.getElementById('errorMessage').innerText = '$errorMessage';
+        });
+    </script>";
+}
+?>

@@ -1,7 +1,7 @@
 <?php
   include 'db.php';
 
-  $id_umkm = 1; // ID UMKM yang ingin ditampilkan
+  $id_umkm = 1; 
   $query = "
       SELECT 
           u.nama_usaha_umkm, u.nama_lengkap_umkm, u.nmr_telepon_umkm, 
@@ -53,32 +53,33 @@
     <span>Edit Profil</span>
   </div>
 
-  <div class="container">
+<div class="container">
     <!-- Baris Pertama -->
         <div class="row">
-            <!-- Upload Foto (1/3 dari lebar baris) -->
+
+            <!-- Upload Foto -->
             <div class="left-1-3">
-            <form id="form1" method="POST" action="update_photoprofile.php" enctype="multipart/form-data">
-            <div class="file-upload" id="fileUpload">
-            <img id="uploadIcon" src="<?php echo $fotoProfil . '?t=' . time(); ?>" alt="Upload Icon">
-            <?php if ($showDeleteBtn): ?>
-              <button id="deleteBtn" class="delete-btn" type="button" <?php if (!$showDeleteBtn) echo 'style="display:none;"'; ?>>Hapus Foto</button>
-            <?php endif; ?>
-            <p id="uploadText">Letakkan foto Anda di sini atau</p>
-            <p><strong id="fileButton">Pilih file</strong></p>
-            <input type="file" id="fileInput" name="foto_profil" accept="image/png, image/jpeg">
-            <span id="fileName"></span>
-        </div>
-                <div class="file-info">
-                    <span>Supported format: PNG, JPG, PDF</span><br>
-                    <span>Ukuran maksimum: 25MB</span>
-                </div>
-                </form>
+                <form id="form1" method="POST" action="update_photoprofile.php" enctype="multipart/form-data">
+                    <div class="file-upload" id="fileUpload">
+                        <img id="uploadIcon" src="<?php echo $fotoProfil . '?t=' . time(); ?>" alt="Upload Icon">
+                        <?php if ($showDeleteBtn): ?>
+                            <button id="deleteBtn" class="delete-btn" type="button" <?php if (!$showDeleteBtn) echo 'style="display:none;"'; ?>>Hapus Foto</button>
+                        <?php endif; ?>
+                        <p id="uploadText">Letakkan foto Anda di sini atau</p>
+                        <p><strong id="fileButton">Pilih file</strong></p>
+                        <input type="file" id="fileInput" name="foto_profil" accept="image/png, image/jpeg">
+                        <span id="fileName"></span>
+                    </div>
+                    <div class="file-info">
+                        <span>Supported format: PNG, JPG, PDF</span><br>
+                        <span>Ukuran maksimum: 25MB</span>
+                    </div>
+                    </form>
             </div>
             
-            <!-- Bidang Usaha, Nama Usaha, Deskripsi (2/3 dari lebar baris) -->
+            <!-- Bidang Usaha, Nama Usaha, Deskripsi  -->
             <div class="right-2-3">  
-            <form id="form2" method="POST" action="update_textprofile1.php">
+                <form id="form2" method="POST" action="update_textprofile1.php">
                     <select name="bidang_usaha" class="category-select">
                         <option value="Fashion" <?php echo $data['bidang_usaha_umkm'] == 'Fashion' ? 'selected' : ''; ?>>Fashion</option>
                         <option value="Kuliner" <?php echo $data['bidang_usaha_umkm'] == 'Kuliner' ? 'selected' : ''; ?>>Kuliner</option>
@@ -88,75 +89,87 @@
                     </select>
                     <input type="text" name="nama_usaha" class="text-input" value="<?php echo htmlspecialchars($data['nama_usaha_umkm']); ?>">
                     <textarea name="deskripsi" class="text-input" rows="4"><?php echo htmlspecialchars($data['deskripsi_umkm']); ?></textarea>
-            </form>
+                </form>
             </div>
         </div>
 
-        <!-- Baris Kedua (tidak mengikuti layout baris pertama) -->
-        <div class="row">  
-          <div class="product-portfolio">
-          <form id="form3" method="POST" action="update_portfolio.php" enctype="multipart/form-data">
-            <h2>Produk & Portofolio</h2>
-            <div class="portfolio-section">
-                <div class="portfolio-upload">
-                    <img src="pictures/camera.png" alt="Portfolio Upload Icon">
-                    <input type="file" id="portfolioInput" name="portfolio_upload[]" accept="image/png, image/jpeg" multiple style="display: none;">
-                    <p>Pilih file</p>
-                </div>
-                <?php foreach ($portfolio_files as $file): ?>
-                    <div class="portfolio-item" data-id="<?= $file['id_portofolio']; ?>">
-                    <img src="uploads/<?= urlencode($file['portofolio_url']); ?>" alt="Portfolio Image" style="width: 150px; height: 150px;">
-                    <button class="delete-button" type="button">
-                        <i class="fa fa-trash"></i>
-                    </button>
+    <!-- Baris Kedua (tidak mengikuti layout baris pertama) -->
+        <div class="row">    
+            <!-- Portfolio -->
+            <div class="product-portfolio">
+                <form id="form3" method="POST" action="update_portfolio.php" enctype="multipart/form-data">
+                    <h2>Produk & Portofolio</h2>
+                    <div class="portfolio-section">
+                        <div class="portfolio-upload">
+                            <img src="pictures/camera.png" alt="Portfolio Upload Icon">
+                            <input type="file" id="portfolioInput" name="portfolio_upload[]" accept="image/png, image/jpeg" multiple style="display: none;">
+                            <p>Pilih file</p>
+                        </div>
+                        <?php foreach ($portfolio_files as $file): ?>
+                            <div class="portfolio-item" data-id="<?= $file['id_portofolio']; ?>">
+                            <img src="uploads/<?= urlencode($file['portofolio_url']); ?>" alt="Portfolio Image" style="width: 150px; height: 150px;">
+                            <button class="delete-button" type="button">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
-                <?php endforeach; ?>
+
+                    <div class="portfolio-info">
+                        <span>Supported format: PNG, JPG, PDF</span>
+                        <span>Ukuran maksimum: 25MB</span>
+                    </div>
+                </form>
             </div>
-            <div class="portfolio-info">
-              <span>Supported format: PNG, JPG, PDF</span>
-              <span>Ukuran maksimum: 25MB</span>
-          </div>
-          </form>
-          </div>
 
+            <!-- Info Section -->
             <div class="info-section">
-    <form id="form4" method="POST" action="update_textprofile.php">
-        <h2>INFO</h2>
-        <label for="pemilik">Pemilik Usaha</label>
-        <input type="text" id="pemilik" name="pemilik_usaha" value="<?php echo htmlspecialchars($data['nama_lengkap_umkm']); ?>">
-        
-        <label for="alamat">Alamat</label>
-        <input type="text" id="alamat" name="alamat" value="<?php echo htmlspecialchars($data['alamat_umkm']); ?>">
-        
-        <label for="kontak">Kontak</label>
-        <input type="text" id="kontak" name="kontak" value="<?php echo htmlspecialchars($data['nmr_telepon_umkm']); ?>">
-    </form>
-</div>
-
+                <form id="form4" method="POST" action="update_textprofile.php">
+                    <h2>INFO</h2>
+                    <label for="pemilik">Pemilik Usaha</label>
+                    <input type="text" id="pemilik" name="pemilik_usaha" value="<?php echo htmlspecialchars($data['nama_lengkap_umkm']); ?>">
+                    
+                    <label for="alamat">Alamat</label>
+                    <input type="text" id="alamat" name="alamat" value="<?php echo htmlspecialchars($data['alamat_umkm']); ?>">
+                    
+                    <label for="kontak">Kontak</label>
+                    <input type="text" id="kontak" name="kontak" value="<?php echo htmlspecialchars($data['nmr_telepon_umkm']); ?>">
+                </form>
+            </div>
         </div>
 
-        <!-- Tombol Footer -->
-        <div class="footer-buttons">
-            <!-- Tombol Batal -->
-            <button type="button" class="cancel-button" onclick="window.location.href='profile_page.php'">Batal</button>
-            <!-- Tombol Simpan -->
-            <button type="submit" id="save-button" class="save-button">Simpan</button>
-        </div>
+    <!-- Tombol Footer -->
+    <div class="footer-buttons">
+        <!-- Tombol Batal -->
+        <button type="button" class="cancel-button" onclick="window.location.href='profile_page.php'">Batal</button>
+        <!-- Tombol Simpan -->
+        <button type="submit" id="save-button" class="save-button">Simpan</button>
+    </div>
         
-         <!-- Popup Pesan Berhasil -->
- <div id="successPopup" class="popup-overlay" style="display: none;">
+    <!-- Popup Pesan Berhasil -->
+    <div id="successPopup" class="popup-overlay" style="display: none;">
         <div class="popup-content">
             <img src="pictures/success.png" alt="Success">
             <p>Profil Berhasil Diperbarui!</p>
             <button onclick="window.location.href='profile_page.php'">Kembali</button>
         </div>
     </div>
+
+    <!-- Popup Pesan Error -->
+    <div id="errorPopup" class="popup-overlay" style="display: none;">
+        <div class="popup-content">
+            <img src="pictures/error.png" alt="Error">
+            <p id="errorMessage"></p>
+            <button onclick="document.getElementById('errorPopup').style.display='none';">Tutup</button>
+        </div>
     </div>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+    // Script submit
     document.getElementById('save-button').addEventListener('click', async function (e) {
-    e.preventDefault(); // Mencegah navigasi ulang halaman
+    e.preventDefault(); 
 
     const forms = [
         { formId: 'form1', url: 'update_photoprofile.php' },
@@ -192,10 +205,9 @@
     }
 
     if (allSuccessful) {
-        // Tampilkan pop-up sukses hanya jika semua berhasil
         document.getElementById('successPopup').style.display = 'flex';
     }
-});
+    });
 
     // Handle klik pada div dengan class .portfolio-upload untuk membuka input file tersembunyi
     document.querySelector('.portfolio-upload').addEventListener('click', function() {
@@ -301,13 +313,13 @@
             console.error('Error:', error);
         });
     });
-});
+    });
 
 
     // Menghapus foto profil saat tombol hapus diklik
     document.getElementById('deleteBtn').addEventListener('click', function (event) {
     event.preventDefault();
-    const id_umkm = 1; // Ganti dengan ID UMKM yang sesuai
+    const id_umkm = 1;
 
     fetch('delete_photoprofile.php', {
         method: 'POST',
@@ -327,5 +339,5 @@
   });
 </script>
 
-  </body>
+</body>
 </html>
