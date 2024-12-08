@@ -1,0 +1,97 @@
+/* General Styles */
+* {
+    box-sizing: border-box;
+}
+body, html {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    background-color: #fdf8f3;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* Header Styles */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px;
+    background-color: #fbbd08;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+.header h1 {
+    margin: 0;
+    color: #000;
+    font-weight: 700;
+}
+.header .auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+.header .auth-buttons a {
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #000;
+    background-color: white;
+    font-weight: 600;
+}
+.header .auth-buttons a:hover {
+    background-color: #ffe8a1;
+}
+
+/* Content Styles */
+.content {
+    margin-top: 110px; /* Memberikan jarak lebih besar dari header */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Card Styles */
+.card {
+    width: 90%;
+    max-width: 1200px; 
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.card-content {
+    position: absolute;
+    bottom: 40px; 
+    left: 40px; 
+    text-align: left;
+    color: white;
+}
+.card-content h1 {
+    margin: 0;
+    font-size: 60px; 
+    line-height: 1.2; 
+    color: #fff;
+}
+.card-content p {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #fff;
+}
+.card-content-secondary {
+    position: absolute;
+    bottom: 28px;
+    left: 32px;
+    color: white; 
+    text-align: left;
+}
+.card-content-secondary h1 {
+    font-size: 32px; 
+    margin: 0;
+}
