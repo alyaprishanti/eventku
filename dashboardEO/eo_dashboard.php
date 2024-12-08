@@ -148,9 +148,9 @@
     <header class="header">
         <div class="logo">Eventku</div>
         <nav>
-            <a href="#">Home</a>
+            <a href="eo_dashboard.php">Home</a>
             <a href='/eventku/kelolaevent/dashboard.php'>Kelola Event</a>
-            <a href="#">FAQ & Support</a>
+            <a href="/eventku/editprofil/FAQ/FAQ.php">FAQ & Support</a>
         </nav>
         <div class="profile">
             <button class="profile-btn">EO</button>
