@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eventku</title>
-    <link rel="stylesheet" href="styles/stylesDashboard.css"> 
+    <link rel="stylesheet" href="eventku/dashboardUMKM/styles/stylesDashboard.css"> 
     <link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@100..700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <script>
-        // Dropdown notifikasi
+        
         function toggleNotification() {
             var notification = document.querySelector('.notification');
             var button = document.querySelector('.expand-button');
@@ -21,13 +21,11 @@
             }
         }
 
-        // Dropdown tombol profil
         function toggleDropdown() {
             const dropdownMenu = document.getElementById('dropdownMenu');
             dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
         }
 
-        // Tutup dropdown jika pengguna mengklik di luar dropdown
         document.addEventListener('click', function (event) {
             const dropdownMenu = document.getElementById('dropdownMenu');
             const btnUmkm = document.querySelector('.btn-umkm');
@@ -44,13 +42,13 @@
             <input placeholder="Search..." type="text"/>
         </div>
         <div class="nav-links">
-            <a href="/eventku/FAQ/FAQUMKM.php">FAQ &amp; Support</a>
+            <a href="eventku/FAQ/FAQUMKM.php">FAQ &amp; Support</a>
         </div>
         <div class="header-right">
         <button class="btn-umkm" onclick="toggleDropdown()">
             <i class="fas fa-user"></i> UMKM</button>
         <div class="dropdown-menu" id="dropdownMenu">
-              <a href="profile_page.php">Profil</a>  
+              <a href="eventku/editprofil/profile_page.php">Profil</a>  
               <a href="#">Daftar Favorit</a>
               <a href="#">Log Out</a>
         </div>
