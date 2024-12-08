@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <title>EO Dashboard</title>
     <style>
         body {
@@ -57,7 +58,14 @@
             color: #fff;
         }
 
+        .content-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 20px;
+        }
         .rising-umkm {
+            flex: 2;
             margin: 20px;
         }
 
@@ -109,10 +117,19 @@
         }
 
         .notification {
+            flex: 1;
             margin: 20px;
             text-align: right;
         }
-
+        .notification h3 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .notification h3 i {
+            margin-right: 10px;
+        }
         .notif-box {
             background-color: #fff;
             border: 1px solid #ccc;
@@ -121,6 +138,7 @@
             max-width: 300px;
             margin-left: auto;
             text-align: left;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .promo-section {
@@ -148,9 +166,9 @@
     <header class="header">
         <div class="logo">Eventku</div>
         <nav>
-            <a href="eo_dashboard.php">Home</a>
+            <a href="/eventku/dashboardEO/eo_dashboard.php">Home</a>
             <a href='/eventku/kelolaevent/dashboard.php'>Kelola Event</a>
-            <a href="/eventku/editprofil/FAQ/FAQ.php">FAQ & Support</a>
+            <a href="/eventku/FAQ.php">FAQ & Support</a>
         </nav>
         <div class="profile">
             <button class="profile-btn">EO</button>
@@ -158,10 +176,13 @@
     </header>
 
     <main>
-        <section class="welcome-section">
-            <h1>Selamat Datang!<br> Mari cari tenantmu!</h1>
-        </section>
+    <main>
+    <section class="welcome-section">
+        <h1>Selamat Datang!<br> Mari cari tenantmu!</h1>
+    </section>
 
+    <div class="content-container">
+        <!-- Rising UMKM -->
         <section class="rising-umkm">
             <h2>Rising UMKM</h2>
             <div class="umkm-list">
@@ -177,7 +198,7 @@
                     echo '
                     <div class="umkm-item">
                         <div class="logo">
-                            <img src="serabite-logo.png" alt="Serabite Logo">
+                            <img src="images/pfp.png" alt="Serabite Logo">
                         </div>
                         <div class="details">
                             <h3>' . $umkm['name'] . ' <span class="tag">' . $umkm['category'] . '</span></h3>
@@ -189,17 +210,22 @@
             </div>
         </section>
 
+        <!-- Notification -->
         <section class="notification">
             <div class="notif-box">
-                <h3>Notifikasi</h3>
+                <h3><i class="fas fa-bell"></i> Notifikasi</h3>
+                <p>Lorem ipsum dolor sit amet consectetur. Turgis magna ac odio volutpat luctus sit magna risus.</p>
                 <p>Lorem ipsum dolor sit amet consectetur. Turgis magna ac odio volutpat luctus sit magna risus.</p>
             </div>
         </section>
+    </div>
 
-        <section class="promo-section">
-            <h2>Gabung dan promosikan Eventmu!</h2>
-            <p>Dengan platform Eventku, semuanya lebih mudah!</p>
-        </section>
+    <section class="promo-section">
+        <h2>Gabung dan promosikan Eventmu!</h2>
+        <p>Dengan platform Eventku, semuanya lebih mudah!</p>
+    </section>
+</main>
+
     </main>
 </body>
 </html>
