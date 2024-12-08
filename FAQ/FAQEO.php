@@ -8,15 +8,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@100..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/eventku/FAQ/styles/stylesFAQ.css">
+    <link rel="stylesheet" href="eventku/FAQ/styles/stylesFAQ.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
 
     <div class="header">
-        <h1><a href="/eventku/dashboardEO/eo_dashboard.php" style="text-decoration: none; color: inherit;">Eventku</a></h1>
+        <h1><a href="eventku/dashboardEO/eo_dashboard.php" style="text-decoration: none; color: inherit;">Eventku</a></h1>
         <div class="nav-links">
-            <a href="/eventku/kelolaAkun/kelolaAkun.php" class="btn-umkm"><i class="fas fa-user"></i>AKUN</a>
+            <a href="eventku/kelolaAkun/kelolaAkun.php" class="btn-umkm"><i class="fas fa-user"></i>AKUN</a>
         </div>
     </div>
 
