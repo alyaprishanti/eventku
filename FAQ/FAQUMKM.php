@@ -1,7 +1,3 @@
-<?php
-include 'auth.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +8,7 @@ include 'auth.php';
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@100..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/eventku/FAQ/styles/stylesDashboard.css">
+    <link rel="stylesheet" href="styles/stylesFAQ.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
@@ -23,7 +19,7 @@ include 'auth.php';
         <div class="nav-links" style="position: relative;">
             <button class="btn-umkm" onclick="toggleDropdown()"><i class="fas fa-user"></i>AKUN</button >
             <div class="dropdown-menu" id="dropdownMenu">
-              <a href="profile_page.php?id_umkm=<?php echo $id_umkm; ?>">Profil</a>  
+              <a href="profile_page.php">Profil</a>  
               <a href="#">Daftar Favorit</a>
               <a href="#">Log Out</a>
             </div>
