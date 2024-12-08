@@ -3,7 +3,7 @@ $host = "localhost";
 $user = "root";      
 $password = "";      
 $dbname = "eventku"; 
-$port = 3307;
+$port = 3306;
 
 $db = mysqli_connect($host, $user, $password, $dbname, $port);
 
