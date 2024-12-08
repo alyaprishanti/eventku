@@ -1,36 +1,28 @@
 <?php
-// Informasi koneksi database
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "eventku";
 
 try {
-    // Koneksi ke database menggunakan PDO
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     die("Koneksi database gagal: " . $e->getMessage());
 }
 
-// Cek apakah form sudah disubmit menggunakan POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Ambil data email dan password dari form POST
     $email = $_POST['email'] ?? '';
     $pass = $_POST['password'] ?? '';
 
-    // Query untuk mengambil data pengguna berdasarkan email
     $sql = "SELECT * FROM umkm WHERE email_umkm = :email LIMIT 1";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':email', $email, PDO::PARAM_STR);
     $stmt->execute();
 
-    // Ambil hasil query
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // Cek apakah email ada di database
     if (!$user) {
-        // Email tidak ditemukan
         echo "<script>
                 alert('Email Anda salah.');
                 window.location.href = 'loginUmkm.php';
@@ -38,9 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     } 
     
-    // Verifikasi password jika email ditemukan
     if ($pass !== $user['password_umkm']) {
-        // Password salah
         echo "<script>
                 alert('Password Anda salah.');
                 window.location.href = 'loginUmkm.php';
