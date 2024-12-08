@@ -28,9 +28,10 @@
             <input placeholder="Search..." type="text"/>
         </div>
         <div class="nav-links">
-            <a href="#">FAQ &amp; Support</a>
-            <a href="#" class="btn-umkm">
-        <i class="fas fa-user"></i> UMKM</a>
+            <a href="eventku/FAQ/FAQ.php">FAQ &amp; Support</a>
+            <a href="eventku/kelolaAkun/kelolaAkun.php" class="btn-umkm">
+                <i class="fas fa-user"></i> UMKM
+            </a>
         </div>
     </div>
     <div class="content">
