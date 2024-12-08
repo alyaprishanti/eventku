@@ -44,7 +44,7 @@
             <input placeholder="Search..." type="text"/>
         </div>
         <div class="nav-links">
-            <a href="FAQ.php">FAQ &amp; Support</a>
+            <a href="/eventku/FAQ/FAQUMKM.php">FAQ &amp; Support</a>
         </div>
         <div class="header-right">
         <button class="btn-umkm" onclick="toggleDropdown()">

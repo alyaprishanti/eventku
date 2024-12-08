@@ -168,7 +168,7 @@
         <nav>
             <a href="/eventku/dashboardEO/eo_dashboard.php">Home</a>
             <a href='/eventku/kelolaevent/dashboard.php'>Kelola Event</a>
-            <a href="/eventku/FAQ.php">FAQ & Support</a>
+            <a href="/eventku/FAQ/FAQEO.php">FAQ & Support</a>
         </nav>
         <div class="profile">
             <button class="profile-btn">EO</button>
