@@ -14,9 +14,9 @@
 <body>
 
     <div class="header">
-        <h1>Eventku</h1>
+        <h1><a href="/eventku/dashboardUMKM/UMKM_Dashboard.php" style="text-decoration: none; color: inherit;">Eventku</a></h1>
         <div class="nav-links">
-            <a href="#" class="btn-umkm"><i class="fas fa-user"></i>AKUN</a>
+            <a href="/eventku/kelolaAkun/kelolaAkun.php" class="btn-umkm"><i class="fas fa-user"></i>AKUN</a>
         </div>
     </div>
 
