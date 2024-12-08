@@ -44,7 +44,7 @@
       <!-- Baris 1: Foto Profil + Informasi Profil -->
       <div class="row">
         <?php
-          $foto_profil = !empty($data['foto_profil']) ? 'uploads/' . $data['foto_profil'] . '?t=' . time() : 'defaultprofile.png';
+          $foto_profil = !empty($data['foto_profil']) ? 'uploads/' . $data['foto_profil'] . '?t=' . time() : 'pictures/defaultprofile.png';
         ?>
         <div class="profile-photo">
           <img src="<?php echo $foto_profil; ?>" alt="Logo Usaha">
