@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eventku</title>
-    <link rel="stylesheet" href="styles/stylesDashboard.css"> 
+    <link rel="stylesheet" href="eventku/dashboardUMKM/styles/stylesDashboard.css"> 
     <link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@100..700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <script>
