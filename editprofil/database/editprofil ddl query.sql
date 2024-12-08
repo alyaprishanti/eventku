@@ -1,14 +1,19 @@
 create schema eventku;
 
-create table eventku.UMKM(
-    id_umkm INT AUTO_INCREMENT PRIMARY KEY,
-    nama_pemilik_umkm VARCHAR(100) NOT NULL,
-    nmr_telepon_umkm VARCHAR(15),
-    email_umkm VARCHAR(100) UNIQUE,
-    nama_usaha_umkm VARCHAR(100) NOT NULL,
-    bidang_usaha_umkm VARCHAR(100),
-    alamat_umkm TEXT
-);
+CREATE TABLE `umkm` (
+  id_umkm int(11) NOT NULL AUTO_INCREMENT,
+  nama_lengkap_umkm varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  alamat_umkm varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  email_umkm varchar(40) COLLATE utf8mb4_general_ci NOT NULL,
+  nmr_telepon_umkm int(11) NOT NULL,
+  nama_usaha_umkm varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  bidang_usaha_umkm varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  password_umkm varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  role varchar(10) COLLATE utf8mb4_general_ci NOT NULL DEFAULT umkm,
+  verification_code int(11) DEFAULT NULL,
+  is_verified tinyint(1) NOT NULL DEFAULT 0,
+  PRIMARY KEY (id_umkm)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE eventku.profil_umkm (
     Id_profil INT AUTO_INCREMENT PRIMARY KEY,
